@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "NT3H1101W0FHKH")(type "KiCad")(uri "C:/Users/rahim/Downloads/KiCad Components/NT3H1101W0FHKH/KiCADv6/2024-03-21_13-33-43.kicad_sym")(options "")(descr "NFC/RFID Tags & Transponders NTAG I2C NFC Forum type 2 Tag compliant"))
+  (lib (name "NT3H1101W0FTTJ")(type "KiCad")(uri "C:/Users/rahim/Downloads/KiCad Components/NT3H1101W0FTTJ/KiCADv6/2024-03-31_15-39-14.kicad_sym")(options "")(descr "NFC/RFID Tags & Transponders NTAG I2C NFC Forum type 2 Tag compliant"))
+)
