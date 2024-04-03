@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "PCB Business Card")
-		(date "2024-03-21")
-		(rev "001")
+		(date "2024-04-03")
+		(rev "0")
 		(comment 1 "Rahim Aziz")
 	)
 	(lib_symbols

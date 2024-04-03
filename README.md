@@ -2,8 +2,9 @@
 The following project is a PCB designed as a business card. This card contains an integrated NFC tag that allows you to share your contact information wirelessly.
 
 <p align="center">
-    <img title="PCB Business Card Render" alt="PCB Business Card" src="./Blender_Render/PCB_Business_Card_PNG.png" width ="75%">
+    <img title="PCB Business Card Render" alt="PCB Business Card" src="./Blender_Render/PCB_Business_Card_Blender.png" width ="75%">
 </p>
+<p align="center"><i>Blender Render</i></p>
 
 ## NFC Principle 🧲
 <b>[NFC (Near Field Communication)](https://www.spiceworks.com/tech/networking/articles/what-is-near-field-communication/)</b> is a group of communication protocols that allows for low speed wireless communication between two electronic devices. 
@@ -154,4 +155,9 @@ By utilizing [MATLAB's Antenna Toolbox](https://www.mathworks.com/help/antenna/)
 
 ## PCB Design
 
+
 # Resources
+* [Guide to designing antennas for the NTAG I2C plus
+](https://community.nxp.com/t5/NXP-Designs-Knowledge-Base/Guide-to-designing-antennas-for-the-NTAG-I2C-plus/ta-p/1104729#toc-hId--56223682)
+* [PN7160 antenna design and matching guide](https://www.nxp.com/docs/en/application-note/AN13219.pdf)
+* https://github.com/shawnalexsony/Business_Card_PCB/tree/main
