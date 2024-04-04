@@ -154,10 +154,32 @@ By utilizing [MATLAB's Antenna Toolbox](https://www.mathworks.com/help/antenna/)
 <p align="center"><i>MATLAB Matching Network S-parameters</i></p>
 
 ## PCB Design
+For the final design of the antenna I ended up settling on the following parameters:
+* $D_0 = 40mm$
+* $t = 35um$
+* $w = 300um$
+* $g = 300um$
+* $Nant = 6\:turns$
+* $L_{calc} = 2.665uH$
+* $R_{ant} = 1.17\:ohms$
+* $C_{ant} = 2pF$
+* $Simulated\:resonance\:frequency:\:13.52 MHz$
 
+For the schematic, I borrowed the idea of an LED indicator for the energy harvesting circuit from the [PCB Business Card With NFC](https://www.instructables.com/PCB-Business-Card-With-NFC/). The capacitor is to guarantee operation during RF communication. The resistor value was chosen to limit the current going through the LED. The value was determined by using the following equation:
+* $R\:=\:\frac{V_{CC}-V_{LED}}{I_{LED}}=\frac{3.2-2.25}{0.02}$
+
+<p align="center">
+    <img title="KiCad Schematic Design" alt="KiCad Schematic Design" src="./Images/Schematic_Image.png" width ="75%">
+</p>
+<p align="center"><i>Schematic Design</i></p>
+<p align="center">
+    <img title="KiCad PCB Design" alt="KiCad PCB Design" src="./Images/PCB_Image.png" width ="75%">
+</p>
+<p align="center"><i>PCB Design</i></p>
 
 # Resources
 * [Guide to designing antennas for the NTAG I2C plus
 ](https://community.nxp.com/t5/NXP-Designs-Knowledge-Base/Guide-to-designing-antennas-for-the-NTAG-I2C-plus/ta-p/1104729#toc-hId--56223682)
 * [PN7160 antenna design and matching guide](https://www.nxp.com/docs/en/application-note/AN13219.pdf)
 * https://github.com/shawnalexsony/Business_Card_PCB/tree/main
+* [PCBWAY Custom Design Rules Templates](https://www.pcbway.com/pcb_prototype/PCB_Design_Rule_Check.html?currency=1)

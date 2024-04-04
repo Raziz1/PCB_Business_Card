@@ -1,0 +1,7 @@
+"Id";"Designator";"Footprint";"Quantity";"Designation";"Supplier and ref";
+1;"C1";"C_0603_1608Metric";1;"220n";;;
+2;"REF**";"COIL_GENERATOR";1;"COIL_GENERATOR";;;
+3;"";"";1;"";;;
+4;"U1";"TSSOP8_SOT505-1_NXP";1;"NT3H1101W0FTTJ";;;
+5;"R1";"R_0603_1608Metric";1;"47";;;
+6;"D1";"LED_0603_1608Metric";1;"RED";;;
