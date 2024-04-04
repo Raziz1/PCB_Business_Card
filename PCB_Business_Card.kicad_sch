@@ -718,6 +718,12 @@
 		(uuid "15addc51-3789-477b-81c8-5de8b2edee2b")
 	)
 	(junction
+		(at 119.38 76.2)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5b517c89-f006-4a5b-8b00-75863827f405")
+	)
+	(junction
 		(at 165.1 99.06)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -728,6 +734,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "93619ffd-b3dc-4c3a-9718-4476b9cb4eb9")
+	)
+	(junction
+		(at 160.02 76.2)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fad7cc67-51fb-4cdb-b8a3-b32c9fbe3f2e")
 	)
 	(no_connect
 		(at 119.38 101.6)
@@ -759,11 +771,31 @@
 			(width 0)
 			(type default)
 		)
+		(uuid "3f8dd3b4-3140-4fd3-8aed-c4d4f2778df4")
+	)
+	(wire
+		(pts
+			(xy 160.02 57.15) (xy 160.02 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
 		(uuid "44e11d1b-6242-44e9-9bdf-7fce64fafcde")
 	)
 	(wire
 		(pts
-			(xy 119.38 76.2) (xy 160.02 76.2)
+			(xy 143.51 76.2) (xy 160.02 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "488b715e-407e-4012-bd47-018e97485e30")
+	)
+	(wire
+		(pts
+			(xy 119.38 57.15) (xy 160.02 57.15)
 		)
 		(stroke
 			(width 0)
@@ -800,6 +832,16 @@
 			(type default)
 		)
 		(uuid "71f8b2f6-40ad-4d8d-a01a-beb412e0cb0e")
+	)
+	(wire
+		(pts
+			(xy 119.38 76.2) (xy 119.38 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73999206-3348-4edf-adef-d40a5d8bf89d")
 	)
 	(wire
 		(pts
@@ -853,6 +895,16 @@
 	)
 	(wire
 		(pts
+			(xy 119.38 76.2) (xy 135.89 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc40cc9d-fe07-4902-8fed-9560810032b8")
+	)
+	(wire
+		(pts
 			(xy 177.8 115.57) (xy 177.8 124.46)
 		)
 		(stroke
@@ -900,6 +952,50 @@
 			(type default)
 		)
 		(uuid "f863d6a1-58b1-4f78-9d94-483cea0ffce8")
+	)
+	(rectangle
+		(start 132.5499 72.4662)
+		(end 146.9009 79.8703)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 635d8369-b148-41ee-a822-033cd34df076)
+	)
+	(text "DNI"
+		(exclude_from_sim no)
+		(at 149.098 73.66 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+		)
+		(uuid "4c050f33-30fe-405c-ae32-f33de58c0cf2")
+	)
+	(text "NFC Antenna"
+		(exclude_from_sim no)
+		(at 139.7 55.626 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a018fb45-4120-4c99-b66b-683fdb89c9cd")
+	)
+	(text "Tuning Capacitor"
+		(exclude_from_sim no)
+		(at 139.954 65.786 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ec33d7e6-393b-4505-bbee-31b663fcae53")
 	)
 	(symbol
 		(lib_id "NT3H1101W0FTTJ:NT3H1101W0FTTJ")
@@ -1194,6 +1290,74 @@
 			(project "PCB_Business_Card"
 				(path "/9044140f-1e15-4de5-8f54-dc011c7b5494"
 					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 139.7 76.2 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d7f6cf40-bdba-41b8-8165-447ba420385a")
+		(property "Reference" "C2"
+			(at 139.7 68.58 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2p"
+			(at 139.7 71.12 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 143.51 75.2348 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 139.7 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 139.7 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c4c2cf1d-63b4-444b-96ea-481f89122888")
+		)
+		(pin "2"
+			(uuid "218d3246-c46d-4bc7-9e2f-9d80ba790df9")
+		)
+		(instances
+			(project "PCB_Business_Card"
+				(path "/9044140f-1e15-4de5-8f54-dc011c7b5494"
+					(reference "C2")
 					(unit 1)
 				)
 			)

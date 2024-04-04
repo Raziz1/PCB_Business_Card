@@ -9,8 +9,8 @@ disp(NFC_IC_circuit)
 ckt = circuit('Network_Matching_Circuit');
 
 %R2 = resistor(1.17, 'R2');
-L1 = inductor(0.0000026, 'L1');
-C2 = capacitor(2e-12,'C2');
+L1 = inductor(0.000002576, 'L1');
+C2 = capacitor(3e-12,'C2');
 add(ckt,[1 3],L1);
 %add(ckt,[2 3],R2);
 add(ckt,[3 0],C2);

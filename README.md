@@ -126,6 +126,13 @@ We can now work our way backwards to verify the parameters we calculated above. 
 </p>
 <p align="center"><i>LTSpice Simulation</i></p>
 
+I decided to rerun the simulation and redesign the antenna parameters ($D_0 = 39mm$) to target an inductance of 2.576uH. This gives us more headroom to account for any imperfections in the manufacturing process. This allows us to use a tuning capacitor to bring the resonance frequency down and closer to 13.56 MHz.  
+
+<p align="center">
+    <img title="LTSpice Simulation Tuned" alt="LTSpice Simulation Tuned" src="./Images/LTSpice_Simulation_Tuned.png" width ="75%">
+</p>
+<p align="center"><i>LTSpice Simulation with Tuning Capacitor</i></p>
+
 ### Electromagnetic Simulation 🧲
 Antennas are typically simulated in electromagnetic simulation software. There are various tools available, such as:
 * Ansys HFSS - The student edition does not support circuit simulation nor does it support import/export
@@ -155,15 +162,16 @@ By utilizing [MATLAB's Antenna Toolbox](https://www.mathworks.com/help/antenna/)
 
 ## PCB Design
 For the final design of the antenna I ended up settling on the following parameters:
-* $D_0 = 40mm$
+* $D_0 = 39mm$
 * $t = 35um$
 * $w = 300um$
 * $g = 300um$
 * $Nant = 6\:turns$
-* $L_{calc} = 2.665uH$
+* $L_{calc} = 2.576uH$
 * $R_{ant} = 1.17\:ohms$
 * $C_{ant} = 2pF$
-* $Simulated\:resonance\:frequency:\:13.52 MHz$
+* $Simulated\:resonance\:frequency:\:13.75 MHz$ 
+    * *Without Tuning Capacitor*
 
 For the schematic, I borrowed the idea of an LED indicator for the energy harvesting circuit from the [PCB Business Card With NFC](https://www.instructables.com/PCB-Business-Card-With-NFC/). The capacitor is to guarantee operation during RF communication. The resistor value was chosen to limit the current going through the LED. The value was determined by using the following equation:
 * $R\:=\:\frac{V_{CC}-V_{LED}}{I_{LED}}=\frac{3.2-2.25}{0.02}$

@@ -7,8 +7,8 @@
 antennaObject = design(spiralArchimedean, 13.56*1e6);
 antennaObject.NumArms = 1;
 antennaObject.Turns = 6;
-antennaObject.InnerRadius = 0.0175;
-antennaObject.OuterRadius = 0.0205;
+antennaObject.InnerRadius = 0.0165;
+antennaObject.OuterRadius = 0.0195;
 antennaObject.WindingDirection = 'CW';
 antennaObject.Conductor.Name = 'Copper';
 antennaObject.Conductor.Conductivity = 5.96*1e7;
@@ -20,10 +20,10 @@ figure;
 show(antennaObject) 
 
 %% 3-D radiation pattern
-p = PatternPlotOptions
-p.SizeRatio = 1;
-p.Transparency = 0.5;
-pattern(antennaObject,1.356e7,patternOptions=p)
+%p = PatternPlotOptions
+%p.SizeRatio = 1;
+%p.Transparency = 0.5;
+%pattern(antennaObject,1.356e7,patternOptions=p)
 
 %% S-parameters & Impedance Graphs
 %resonantFrequency(antennaObject,10e6:1e6:100e6,Method="Sparameters");
