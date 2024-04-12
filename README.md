@@ -23,7 +23,7 @@ THe NFC IC being used in this project is the [NT3H1101W0FHKH](https://www.digike
 * This chip is an NFC chip designed by NXP. It features I2C communication, energy harvesting, and field detection features. 
 * It features 64 bytes of SRAM and 1kB of EEPROM memory. We can use the onboard memory to stored a personal website link for the user device to retrieve when communicating with the IC.
 * Lastly with this chip, we can utilize the induced current to power the chip (i.e., energy harvesting).
-* We can program the IC through the [NFC Tools](https://play.google.com/store/apps/details?id=com.wakdev.wdnfc) app.
+* We can program the IC through the [NFC TagWriter by NXP](https://play.google.com/store/apps/details?id=com.nxp.nfc.tagwriter&hl=en_GB) app.
 
 <p align="center">
     <img title="NFC IC " alt="NFC IC" src="./Images/NFC_IC_Image.png" width ="25%">
@@ -177,6 +177,7 @@ For the final design of the antenna I ended up settling on the following paramet
 
 For the schematic, I borrowed the idea of an LED indicator for the energy harvesting circuit from the [PCB Business Card With NFC](https://www.instructables.com/PCB-Business-Card-With-NFC/). The capacitor is to guarantee operation during RF communication. The resistor value was chosen to limit the current going through the LED. The value was determined by using the following equation:
 * $R\:=\:\frac{V_{CC}-V_{LED}}{I_{LED}}=\frac{3.2-2.25}{0.02}$
+* *For the final BOM I ended up going with a green LED with a forward voltage drop of 2V. This meant that the resistor value needed to be recalculated as follows:* $R\:=\:\frac{V_{CC}-V_{LED}}{I_{LED}}=\frac{3.3-2}{0.02} = 65Ω$
 
 <p align="center">
     <img title="KiCad Schematic Design" alt="KiCad Schematic Design" src="./Images/Schematic_Image.png" width ="75%">
@@ -186,6 +187,46 @@ For the schematic, I borrowed the idea of an LED indicator for the energy harves
     <img title="KiCad PCB Design" alt="KiCad PCB Design" src="./Images/PCB_Image.png" width ="75%">
 </p>
 <p align="center"><i>PCB Design</i></p>
+
+## Final BOM 📃
+* [NT3H1101W0FTTJ - IC RFID TRANSP 13.56MHZ 8TSSOP](https://www.digikey.ca/en/products/detail/nxp-usa-inc/NT3H1101W0FTTJ/5347877)
+* [150060VS75000 - LED GREEN CLEAR 0603 SMD](https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/150060VS75000/4489906)
+* [C0603C224J4REC7867 - CAP CER 0603 220NF 16V X7R 5%](https://www.digikey.ca/en/products/detail/kemet/C0603C224J4REC7867/8643651)
+* [CRCW060364R9FKEA - RES SMD 64.9 OHM 1% 1/10W 0603](https://www.digikey.ca/en/products/detail/vishay-dale/CRCW060364R9FKEA/1174533)
+* [GRM0335C1E1R5BA01D - CAP CER 1.5PF 25V C0G/NP0 0201 (0603 Metric)](https://www.digikey.ca/en/products/detail/murata-electronics/GRM0335C1E1R5BA01D/4358584)
+
+## Manufacturing 🪛
+I ordered the board through PCBWay by using the [KiCAD plugin](https://www.pcbway.com/blog/News/PCBWay_Plug_In_for_KiCad_3ea6219c.html). I assembled and soldered the components on the board myself. 
+
+For the PCBWay specification selection I chose the following options:
+* Layers: 2
+* Material: FR-4
+* FR4-TG: TG130-140
+* Thickness: 1.6mm
+* Min track/spacing: 5/5mil
+* Solder mask: Green
+* Silkscreen: White
+* Edge connector: No
+* Surface finish: HASL with lead
+* Via process: Tenting vias
+* Finished copper: 1 oz Cu
+* Remove product Num: No
+
+<p align="center">
+    <img title="PCBWay PCB" alt="PCBWay PCB" src="./Images/PCB_Business_Card_PCBWay.jpg" width ="75%">
+</p>
+<p align="center"><i>Final Product</i></p>
+
+## Programming 💻
+Lastly, I programed the IC through the [NFC TagWriter by NXP](https://play.google.com/store/apps/details?id=com.nxp.nfc.tagwriter&hl=en_GB) app.
+
+<p align="center">
+    <img title="PCB GIF" alt="PCB GIF" src="./Images/PCB_GIF.gif" width ="75%">
+</p>
+<p align="center"><i>PCB in Action!</i></p>
+
+## TODO
+* In the future I would like to characterize the frequency response of the antenna with a network analyzer. With the network analyzer we can determine the effect the tuning capacitor has on the antennas frequency response. 
 
 # Resources
 * [Guide to designing antennas for the NTAG I2C plus
