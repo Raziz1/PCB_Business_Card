@@ -225,8 +225,16 @@ Lastly, I programed the IC through the [NFC TagWriter by NXP](https://play.googl
 </p>
 <p align="center"><i>PCB in Action!</i></p>
 
-## TODO
-* In the future I would like to characterize the frequency response of the antenna with a network analyzer. With the network analyzer we can determine the effect the tuning capacitor has on the antennas frequency response. 
+## Characterization 🔬
+Finally, I was able to characterize the response of the circuit by using my Analog Discovery 2 - USB oscilloscope. This was achieved by using the spectrum analyzer feature and probing both ends of the antenna. 
+
+<p align="center">
+    <img title="Spectrum Analyzer" alt="Spectrum Analyzer" src="./Images/Spectrum_Analysis.png" width ="100%">
+</p>
+<p align="center"><i>Spectrum Analyzer</i></p>
+
+Surprisingly, the dominant frequency within the signal was 13.562Hz with an amplitude of 12.37dB. This was surprising, because the board I assembled above <b>did not include the tuning capacitor</b>. Based on the previous simulations we would have expected the dominant frequency to be slightly higher. Nevertheless, we can utilize the spectrum analyzer to characterize the effect the tuning capacitor has on the circuit. 
+
 
 # Resources
 * [Guide to designing antennas for the NTAG I2C plus
