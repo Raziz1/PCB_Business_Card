@@ -176,8 +176,7 @@ For the final design of the antenna I ended up settling on the following paramet
     * *Without Tuning Capacitor*
 
 For the schematic, I borrowed the idea of an LED indicator for the energy harvesting circuit from the [PCB Business Card With NFC](https://www.instructables.com/PCB-Business-Card-With-NFC/). The capacitor is to guarantee operation during RF communication. The resistor value was chosen to limit the current going through the LED. The value was determined by using the following equation:
-* $R\:=\:\frac{V_{CC}-V_{LED}}{I_{LED}}=\frac{3.2-2.25}{0.02}$
-* *For the final BOM I ended up going with a green LED with a forward voltage drop of 2V. This meant that the resistor value needed to be recalculated as follows:* $R\:=\:\frac{V_{CC}-V_{LED}}{I_{LED}}=\frac{3.3-2}{0.02} = 65Ω$
+* $R\:=\:\frac{V_{CC}-V_{LED}}{I_{LED}}=\frac{3.3-2}{0.02} = 65Ω$
 
 <p align="center">
     <img title="KiCad Schematic Design" alt="KiCad Schematic Design" src="./Images/Schematic_Image.png" width ="75%">
@@ -226,14 +225,28 @@ Lastly, I programed the IC through the [NFC TagWriter by NXP](https://play.googl
 <p align="center"><i>PCB in Action!</i></p>
 
 ## Characterization 🔬
-Finally, I was able to characterize the response of the circuit by using my Analog Discovery 2 - USB oscilloscope. This was achieved by using the spectrum analyzer feature and probing both ends of the antenna. 
+Finally, I wanted to characterize the response of the circuit using my Analog Discovery 2 - USB oscilloscope. In particular, I aimed to characterize and visualize the difference in responses when the circuit had and didn't have a tuning capacitor.
+
+### No Tuning Capacitor
+
+The first order of business was to utilize the network analyzer feature on the Analog Discovery 2. By attaching the wave generator on one end of the antenna and probing on the other we could sweep through various frequencies and observe the circuits response.
+
+<p align="center">
+    <img title="Network Analyzer" alt="Network Analyzer" src="./Images/Network_Analysis.png" width ="100%">
+</p>
+<p align="center"><i>Network Analyzer</i></p>
+
+The above graph describes the S11 parameter, which represents the return loss of a device, indicating how much of the input power supplied to the device reflects back to the input port. We observe that at 14 MHz, the graph dips to a gain of -44.9 dB. This indicates that at 14 MHz, the magnitude of the reflected signal is lower than the magnitude of the incident signal. This implies that the antenna is absorbing the incident energy rather than reflecting it back towards the source. This response closely matches what we simulated previously in LTspice and MATLAB. For an NFC antenna, this behavior is desirable at 13.56 MHz. We can generate a graph with a dip closer to 13.56 MHz by including the tuning capacitor!
+
 
 <p align="center">
     <img title="Spectrum Analyzer" alt="Spectrum Analyzer" src="./Images/Spectrum_Analysis.png" width ="100%">
 </p>
 <p align="center"><i>Spectrum Analyzer</i></p>
 
-Surprisingly, the dominant frequency within the signal was 13.562Hz with an amplitude of 12.37dB. This was surprising, because the board I assembled above <b>did not include the tuning capacitor</b>. Based on the previous simulations we would have expected the dominant frequency to be slightly higher. Nevertheless, we can utilize the spectrum analyzer to characterize the effect the tuning capacitor has on the circuit. 
+Lastly, during the operation of the circuit, we can utilize the spectrum analyzer to observe the magnitude of the incoming signal. Keep in mind that this circuit doesn't contain a tuning capacitor. This was achieved by probing both ends of the antenna. Once a phone was brought within operating distance, we could see that the antenna contained a signal with a magnitude of 12.37 dB at 13.56 MHz.
+
+## Tuning Capacitor Included
 
 
 # Resources
