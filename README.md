@@ -246,7 +246,21 @@ The above graph describes the S11 parameter, which represents the return loss of
 
 Lastly, during the operation of the circuit, we can utilize the spectrum analyzer to observe the magnitude of the incoming signal. Keep in mind that this circuit doesn't contain a tuning capacitor. This was achieved by probing both ends of the antenna. Once a phone was brought within operating distance, we could see that the antenna contained a signal with a magnitude of 12.37 dB at 13.56 MHz.
 
-## Tuning Capacitor Included
+## Tuning Capacitor Included (3.9pF)
+
+By introducing a tuning capacitor with a value of 3.9pF, I was able to adjust the circuit's response to achieve resonance closer to the NFC standard of 13.56 MHz. Below is the graph produced by the network analyzer. We can see that this time the graph dips at a frequency of 13.555 MHz with a gain of -44.34 dB.
+
+<p align="center">
+    <img title="Network Analyzer Tuned" alt="Network Analyzer Tuned" src="./Images/Network_Analysis_Tuned.png" width ="100%">
+</p>
+<p align="center"><i>Network Analyzer</i></p>
+
+<p align="center">
+    <img title="Spectrum Analyzer Tuned" alt="Spectrum Analyzer Tuned" src="./Images/Spectrum_Analysis_Tuned.png" width ="100%">
+</p>
+<p align="center"><i>Spectrum Analyzer</i></p>
+
+Utilizing the same process as the previous spectrum analysis, we can observe that the antenna contained a signal with a magnitude of 12.494 dB at 13.562 MHz.
 
 
 # Resources
