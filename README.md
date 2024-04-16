@@ -246,7 +246,7 @@ The above graph describes the S11 parameter, which represents the return loss of
 
 Lastly, during the operation of the circuit, we can utilize the spectrum analyzer to observe the magnitude of the incoming signal. Keep in mind that this circuit doesn't contain a tuning capacitor. This was achieved by probing both ends of the antenna. Once a phone was brought within operating distance, we could see that the antenna contained a signal with a magnitude of 12.37 dB at 13.56 MHz.
 
-## Tuning Capacitor Included (3.9pF)
+### Tuning Capacitor Included (3.9pF)
 
 By introducing a tuning capacitor with a value of 3.9pF, I was able to adjust the circuit's response to achieve resonance closer to the NFC standard of 13.56 MHz. Below is the graph produced by the network analyzer. We can see that this time the graph dips at a frequency of 13.555 MHz with a gain of -44.34 dB.
 
@@ -262,6 +262,23 @@ By introducing a tuning capacitor with a value of 3.9pF, I was able to adjust th
 
 Utilizing the same process as the previous spectrum analysis, we can observe that the antenna contained a signal with a magnitude of 12.494 dB at 13.562 MHz.
 
+### Poorly Tuned NFC Antenna
+By introducing a really large tuning capacitor with a value of 15pF, we can adjust the circuit's response to achieve resonance at 12.5 MHz. Given the poorly tuned antenna, we expect to either see that the NFC capabilities cease to work or that the magnitude of the NFC signal is extremely weak. We can quantify this by utilizing the same spectrum analysis technique as used in the previous examples.
+
+<p align="center">
+    <img title="Spectrum Analyzer Poorly Tuned" alt="Spectrum Analyzer Poorly Tuned" src="./Images/Poorly_Tuned_NFC.png" width ="100%">
+</p>
+<p align="center"><i>Spectrum Analyzer of Poorly Tuned Antenna</i></p>
+
+With the poorly tuned antenna, the NFC capabilities continued to work. However, it did require the phone to be slightly closer to the antenna. Additionally, based on the above graph, we can see that the magnitude of the NFC signal (13.56MHz) is significantly weaker than in previous examples.
+
+## NFC Protocol
+By utilizing the Analog Discovery 2 oscilloscope feature, I was able to capture a snippet of an NFC transmission. This was done by probing the antenna during NFC operation. The NFC protocol is extremely complicated, and therefore, it is difficult to decipher what this transmission is. You can click on the following link to learn more about the [NFC transmission protocol](https://scdn.rohde-schwarz.com/ur/pws/dl_downloads/dl_application/application_notes/1ma182/1MA182_5E_NFC_WHITE_PAPER.pdf).
+
+<p align="center">
+    <img title="NFC Transmission" alt="NFC Transmission" src="./Images/NFC_Transmission.png" width ="100%">
+</p>
+<p align="center"><i>NFC Transmission</i></p>
 
 # Resources
 * [Guide to designing antennas for the NTAG I2C plus
