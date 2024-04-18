@@ -19,14 +19,14 @@ The following project is a PCB designed as a business card. This card contains a
 </p>
 
 ## NFC IC 📶
-THe NFC IC being used in this project is the [NT3H1101W0FHKH](https://www.digikey.ca/en/products/detail/nxp-usa-inc/NT3H1101W0FHKH/5215136).
+THe NFC IC being used in this project is the [NT3H1101W0FTTJ](https://www.digikey.ca/en/products/detail/nxp-usa-inc/NT3H1101W0FTTJ/5347877).
 * This chip is an NFC chip designed by NXP. It features I2C communication, energy harvesting, and field detection features. 
 * It features 64 bytes of SRAM and 1kB of EEPROM memory. We can use the onboard memory to stored a personal website link for the user device to retrieve when communicating with the IC.
 * Lastly with this chip, we can utilize the induced current to power the chip (i.e., energy harvesting).
 * We can program the IC through the [NFC TagWriter by NXP](https://play.google.com/store/apps/details?id=com.nxp.nfc.tagwriter&hl=en_GB) app.
 
 <p align="center">
-    <img title="NFC IC " alt="NFC IC" src="./Images/NFC_IC_Image.png" width ="25%">
+    <img title="NFC IC " alt="NFC IC" src="./Images/NFC_IC_Image.png" width ="40%">
 </p>
 
 ## NFC Equivalent Circuit
