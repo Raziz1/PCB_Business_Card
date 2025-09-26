@@ -133,6 +133,7 @@ I decided to rerun the simulation and redesign the antenna parameters ($D_0 = 39
 </p>
 <p align="center"><i>LTSpice Simulation with Tuning Capacitor</i></p>
 
+<!--
 ### Electromagnetic Simulation 🧲
 Antennas are typically simulated in electromagnetic simulation software. There are various tools available, such as:
 * Ansys HFSS - The student edition does not support circuit simulation nor does it support import/export
@@ -161,6 +162,7 @@ By utilizing [MATLAB's Antenna Toolbox](https://www.mathworks.com/help/antenna/)
 <p align="center"><i>MATLAB Matching Network S-parameters</i></p>
 
 S11 represents the return loss of a device, indicating how much of the input power supplied to the device reflects back to the input port. For an NFC antenna design, it is desired for it to have the lowest gain at at 13.56 MHz. 
+-->
 
 ## PCB Design
 For the final design of the antenna I ended up settling on the following parameters:
