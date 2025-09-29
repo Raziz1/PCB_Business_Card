@@ -133,36 +133,41 @@ I decided to rerun the simulation and redesign the antenna parameters ($D_0 = 39
 </p>
 <p align="center"><i>LTSpice Simulation with Tuning Capacitor</i></p>
 
-<!--
+
 ### Electromagnetic Simulation 🧲
-Antennas are typically simulated in electromagnetic simulation software. There are various tools available, such as:
-* Ansys HFSS - The student edition does not support circuit simulation nor does it support import/export
-* Solidworks CST Microwave -  The student edition does not support circuit simulation nor does it support import/export 
+Antennas are typically simulated using electromagnetic simulation software to predict and optimize their real-world performance. A variety of tools are available, such as:
+* Ansys HFSS/Maxwell - The student edition is free but has limitations
+* Solidworks CST Microwave -  The student edition is free but has limitations
 * openEMS
 * MATLAB Antenna Toolbox
 
-For this design, I ended up simulating it in MATLAB because I did not have access to the non-student versions of HFSS or CST.
+For this design, I chose to work with MATLAB’s Antenna Toolbox and RF Toolbox, as I did not yet have the experience to effectively use industry-grade tools like HFSS or CST.
 
 #### MATLAB Antenna Toolbox
-By utilizing [MATLAB's Antenna Toolbox](https://www.mathworks.com/help/antenna/), we can generate a spiral antenna as well as its S-parameters based on the network-matched design.
-
-<p align="center">
-    <img title="MATLAB Antenna Simulation" alt="MATLAB Antenna Simulation" src="./Antenna_Simulations/MATLAB_Antenna_Simulation/MATLAB_Antenna_Spiral_Image.png" width ="75%">
-</p>
-<p align="center"><i>MATLAB Archimedean Spiral</i></p>
-
 <p align="center">
     <img title="MATLAB Antenna Simulation" alt="MATLAB Antenna Simulation" src="./Antenna_Simulations/MATLAB_Antenna_Simulation/MATLAB_3D_Radiation_Image.png" width ="75%">
 </p>
 <p align="center"><i>MATLAB 3D Radiation Pattern</i></p>
 
-<p align="center">
-    <img title="MATLAB Antenna Simulation" alt="MATLAB Antenna Simulation" src="./Antenna_Simulations/MATLAB_Antenna_Simulation/Matching_Network_Sparameters_Image.png" width ="75%">
-</p>
-<p align="center"><i>MATLAB Matching Network S-parameters</i></p>
 
-S11 represents the return loss of a device, indicating how much of the input power supplied to the device reflects back to the input port. For an NFC antenna design, it is desired for it to have the lowest gain at at 13.56 MHz. 
--->
+After spending several days experimenting with the MATLAB script from the repository, I was unsuccessful in reproducing a clear resonance at 13.56 MHz. I tried designing the antenna directly in the Antenna Toolbox, carefully defining spiral coil parameters, trace width, spacing, and substrate properties. I also attempted to import the PCB layout into the PCB Antenna Toolbox using the gerber files of the actual NFC coil. Despite these efforts, the desired resonance could not be achieved. Following a discussion with [Umar on the MATLAB Answers forum](https://www.mathworks.com/matlabcentral/answers/2180231-matlab-nfc-antenna-simulation?s_tid=srchtitle), it was clarified that the limitation lies in the software itself for this specific application:
+
+>* *"MATLAB’s Antenna Toolbox is designed for far-field radiation analysis, not near-field inductive coupling. NFC, however, operates in the reactive near-field, where antennas behave as coupled inductors rather than radiating elements. The S11 parameters calculated in MATLAB inherently assume radiation losses, which do not accurately represent NFC coil physics."* *
+
+At this stage, Umar provided a toolbox-free MATLAB script that verified the design using RF first principles, which is available in the repository. The script addressed the following calculations:
+* Inductance using Wheeler’s formula (adapted to spiral coil + substrate corrections)
+* AC + DC resistance including skin effect and dielectric loss
+* Impedance of the NFC IC (modeled as parallel R + C)
+* Combined system impedance and S11 over a narrower frequency sweep
+* Determination of resonant frequency (by finding minimum imaginary part)
+* Computation of required tuning capacitance
+* Quality factor (Q), VSWR, bandwidth, return loss, Smith chart, etc.
+* Using this method, Umar was able to detect a resonance around 11.81 MHz (≈ 12.9% error relative to target) with realistic inductance, resistance, and matching parameters. 
+
+<p align="center">
+    <img title="Umar Script Output" alt="Umar Script Output" src="./Antenna_Simulations/MATLAB_Antenna_Simulation/NFC Antenna Analysis - Basic MATLAB.png" width ="100%">
+</p>
+<p align="center"><i>Umar Script Output</i></p>
 
 ## PCB Design
 For the final design of the antenna I ended up settling on the following parameters:
