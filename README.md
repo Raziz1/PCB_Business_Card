@@ -231,6 +231,33 @@ Lastly, I programed the IC through the [NFC TagWriter by NXP](https://play.googl
 </p>
 <p align="center"><i>PCB in Action!</i></p>
 
+> [!CAUTION]
+> ### iPhone Compatibility & Energy Harvesting Limit
+>
+> During real-world testing, this card worked reliably on Android devices but failed to trigger background NFC reading on iPhones.
+>
+> * **Polling Fields:** iPhones emit low-energy, brief polling bursts to conserve battery, whereas many Android phones broadcast significantly stronger, higher-energy continuous RF fields.
+> * **Energy Starvation:** When attempting to harvest energy from an iPhone, the on-board LED circuit drew too much current. This collapsed the harvested voltage rail before the NT3H1101’s digital core could boot and complete its initial communication handshake.
+>
+> #### Circuit Current Consumption
+> Based on the populated components ($R = 64.9\ \Omega$ and a green LED with $V_f \approx 2.0\text{ V}$), the branch demands:
+>
+> $$I_{LED} = \frac{V_{OUT} - V_{LED}}{R} = \frac{3.3\text{ V} - 2.0\text{ V}}{64.9\ \Omega} \approx 20\text{ mA}$$
+>
+> #### Datasheet Limit
+> According to the NXP NT3H1101/1201 datasheet:
+>
+> > *"The voltage and current from the energy harvesting depend on various parameters, such as the strength of the RF field, the tag antenna size, or the distance from the NFC device. At room temperature, NTAG I2C could provide typically 5 mA at 2 V on the VOUT pin with an NFC Phone.*
+> >
+> > *Operating NTAG I2C in energy harvesting mode requires a number of precautions:*
+> > * *A significant capacitor is needed to guarantee operation during RF communication. The total capacitor between VOUT and GND shall be in the range of 150nF to 200 nF.*
+> >
+> > *Note that increasing the output current on the Vout decreases the RF communication range."*
+>
+> Because the IC typically delivers only up to **5 mA at 2 V** under smartphone coupling, an active load demanding **~20 mA** collapses the harvested rail on lower-power emitters like iPhones.
+>
+> **Fix:** Leaving the LED/resistor unpopulated (or increasing the resistor to $\ge 1\text{--}2\text{ k}\Omega$ to limit current below $1\text{ mA}$) immediately restores instant background read compatibility on iPhones.
+
 ## Characterization 🔬
 Finally, I wanted to characterize the response of the circuit using my Analog Discovery 2 - USB oscilloscope. In particular, I aimed to characterize and visualize the difference in responses when the circuit had and didn't have a tuning capacitor.
 
